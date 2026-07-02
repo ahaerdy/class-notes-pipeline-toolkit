@@ -304,7 +304,7 @@ PDF gerado com sucesso: /home/arthur/Downloads/imagens.pdf
 
 ## Resultado final
 
-### Exemplo de arquivo gerado: [aula-maven-lombok-mapstruct.md](resultado/aula-maven-lombok-mapstruct.md)
+### Exemplo de arquivo gerado (formato raw): [aula-maven-lombok-mapstruct.md](https://raw.githubusercontent.com/ahaerdy/classnotes-pipeline-toolkit/refs/heads/main/resultado/aula-maven-lombok-mapstruct.md)
 
 Trecho:
 
