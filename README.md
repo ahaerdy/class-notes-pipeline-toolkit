@@ -32,7 +32,7 @@ flowchart TD
     G --> H["pp_gera_pdf.py"]
     H --> I["📄 esqueleto.md\n📄 esqueleto_enriquecido.md\n📕 imagens.pdf"]
     I -->|"4. upload manual + prompt_11.yml"| J["🤖 Chat com IA\n(Claude, ChatGPT, etc.)"]
-    J --> K["✅ Markdown final de anotações\n(pronto para Obsidian)"]
+    J --> K["✅ Markdown final de anotações"]
 ```
 
 ---
@@ -203,7 +203,7 @@ O resultado é um único arquivo Markdown, pronto para uso direto no Obsidian.
 
 ## Exemplo de pipeline
 
-### cPreparo do vídeo, exportação do áudio, geração da transcrição e do resumo:
+### Preparo do vídeo, exportação do áudio, geração da transcrição e do resumo:
 
 Executar na pasta do arquivo `processa_screen_capture.cfg`(normalmente `000-Midia_e_Anexos`).
 
@@ -301,6 +301,18 @@ PDF gerado com sucesso: /home/arthur/Downloads/imagens.pdf
 <p align="center">
   <img src="000-Midia_e_Anexos/2026-07-02-15-32-13.png" alt="" width="480">
 </p>
+
+## Resultado final
+
+Exemplo de arquivo gerado: [aula-maven-lombok-mapstruct.md](resultado/aula-maven-lombok-mapstruct.md)
+
+Trecho:
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/2026-07-02-15-54-48.png" alt="" width="480">
+</p>
+
+Observe que o arquivo final ainda pode contar comentários em HTML (e, possivelmente, o texto da transcrição). Isto pode ser suprimido através de um prompt de limpeza (`prompt_repita.yml` disponibilizado na pasta `prompts`.)
 
 ---
 

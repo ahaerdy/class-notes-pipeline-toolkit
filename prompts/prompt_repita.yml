@@ -1,0 +1,27 @@
+matches:
+  - trigger: ":rep"
+    replace: |
+        **Prompt refinado para eliminar linhas com apenas cerquilhas e outros elementos indesejados:**
+
+        1. **Remova completamente a seção de transcrição** que aparece ao final do documento (todo o conteúdo após "<!-- FIM DA TRANSCRIÇÃO -->" ou qualquer marcação equivalente que indique o fim da parte explicativa).
+
+        2. **Remova todas as linhas que contenham exclusivamente um ou mais caracteres '#' (cerquilha)**, podendo haver espaços à direita ou à esquerda, mas **nenhum outro caractere textual** na linha.
+        - Exemplos de linhas a remover:
+            `#`
+            `##`
+            `###   `
+            `#### `
+        - Linhas que contenham texto após as cerquilhas **devem ser mantidas** (ex.: `# Título` ou `## Introdução`).
+
+        3. **Remova todas as seções delimitadas por `<!--` e `-->`** (comentários HTML), incluindo as próprias marcas e todo o conteúdo entre elas.
+
+        4. **Preserve integralmente** a estrutura do documento:
+        - Todos os blocos de imagem (com a tag `<p align="center">...`) devem permanecer inalterados.
+        - As explicações didáticas associadas a cada imagem devem ser mantidas exatamente como estão.
+        - A ordem das imagens e dos textos deve ser rigorosamente respeitada.
+
+        5. **Não adicione** nenhum texto novo, resumo, introdução ou conclusão. Não adicione linhas com separadores --- .Apenas execute as remoções solicitadas.
+
+        6. **Não adicione** referências a citações do tipo "[cite...]"
+
+        O resultado final deve ser um documento Markdown limpo, contendo apenas as imagens e os textos explicativos, sem os elementos especificados.
