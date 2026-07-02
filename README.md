@@ -324,7 +324,7 @@ A captura abaixo (apenas um trecho) demonstra o resultado final após a execuç�
 
 ---
 
-## 🛠️ Possíveis melhorias futuras
+## Possíveis melhorias
 - Empacotar as etapas 1–3 em um único script "mestre" com tratamento de erro entre etapas.
 - Adicionar testes automatizados para as heurísticas de classificação de imagem (`pp_classifica_imagens.py`).
 - Permitir configurar o modelo de IA e o idioma via variáveis de ambiente em vez de edição direta do script.
