@@ -336,7 +336,7 @@ A captura abaixo (apenas um trecho) demonstra o resultado final após a execuç�
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a [MIT LICENSE](LICENSE).
+Este projeto está sob a licença definida em [`MIT LICENSE`](./LICENSE).
 
 ---
 
