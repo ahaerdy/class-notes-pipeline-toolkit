@@ -223,11 +223,13 @@ O resultado é um único arquivo Markdown, pronto para uso direto no Obsidian.
 
 ## Exemplo de execução
 
+### Preparo do vídeo, exportação do áudio, geração da transcrição e do resumo:
+
 ```bash
 processa_screen_capture.sh; processa_audio_v5.3.sh
 ```
 
-### Saída:
+#### Saída:
 
 ```bash
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -282,9 +284,13 @@ processa_screen_capture.sh; processa_audio_v5.3.sh
 ==========================================================
 ```
 
+### Montagem do esqueleto, classificação de imagens e geração do PDF:
+
 ```java
 monta_esqueleto_e_prepara_pdf.sh
 ```
+
+#### Saída:
 
 ```bash
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
