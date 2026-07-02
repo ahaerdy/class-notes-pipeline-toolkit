@@ -221,7 +221,7 @@ O resultado é um único arquivo Markdown, pronto para uso direto no Obsidian.
 7. [ ] Disparar `:p11` e revisar o Markdown final
 8. [ ] Salvar o resultado nas anotações do curso 🎉
 
-## Exemplo de execução
+## Exemplo de pipeline
 
 ### Preparo do vídeo, exportação do áudio, geração da transcrição e do resumo:
 
@@ -311,6 +311,12 @@ PDF gerado com sucesso: /home/arthur/Downloads/imagens.pdf
 ✨  Fluxo finalizado com sucesso!  🚀
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+### Upload dos arquivos `imagens.pdf` e `esqueleto_enriquecido.md` e execução do `prompt_11`
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/2026-07-02-15-32-13.png" alt="" width="480">
+</p>
 
 ---
 
