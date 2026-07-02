@@ -312,7 +312,7 @@ Trecho:
   <img src="000-Midia_e_Anexos/2026-07-02-15-54-48.png" alt="" width="480">
 </p>
 
-Observe que o arquivo final ainda pode contar comentários em HTML (e, possivelmente, o texto da transcrição). Isto pode ser suprimido através de um prompt de limpeza (`prompt_repita.yml` disponibilizado na pasta `prompts`.)
+📌 Limpeza pós-processamento: O arquivo Markdown gerado pela IA pode conter comentários em HTML e a transcrição bruta como apêndice. Para obter um documento final "limpo" (contendo apenas as imagens e o conteúdo didático), utilize o prompt contido em prompts/prompt_repita.yml (snippet :rep no Espanso). Este prompt remove metadados, comentários técnicos e a transcrição, deixando o arquivo pronto para consumo final.
 
 ---
 
