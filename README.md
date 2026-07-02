@@ -321,7 +321,7 @@ Trecho:
 A captura abaixo (apenas um trecho) demonstra o resultado final após a execução do pipeline e aplicação do prompt de limpeza (prompt_repita.yml). Note a organização sequencial, onde a captura de tela é sucedida pela explicação didática e pelo bloco de código, mantendo a estrutura ideal para consulta no Obsidian.
 
 <p align="center">
-  <img src="000-Midia_e_Anexos/2026-07-02-16-14-39.png" alt="" width="480">
+  <img src="000-Midia_e_Anexos/2026-07-02-16-19-52.png" alt="" width="480">
 </p>
 
 ---
