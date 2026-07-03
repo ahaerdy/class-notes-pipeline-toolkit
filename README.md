@@ -68,8 +68,11 @@ aula-pipeline-toolkit/
 │   │
 │   ├── 02-transcricao_audio/
 │   │   └── processa_audio_v5.3.sh
+|   |
+│   ├── 03-converte_imagens
+│   │   └── convertALL_png_to_jpg.sh
 │   │
-│   └── 03-montagem_material/
+│   └── 04-montagem_material/
 │       ├── monta_esqueleto_e_prepara_pdf.sh
 │       ├── pp_gera_esqueleto.py
 │       ├── pp_classifica_imagens.py
@@ -101,7 +104,7 @@ Os três scripts Python (`pp_gera_esqueleto.py`, `pp_classifica_imagens.py`, `pp
 ## 🚀 Sequência de execução
 
 ### Etapa 1 — Captura e preparo do vídeo/áudio
-**Script:** `scripts/01_captura_video/processa_screen_capture.sh`
+**Script:** `scripts/01-captura_video/processa_screen_capture.sh`
 
 Executado na pasta onde vive o `processa_screen_capture.cfg` (não incluso no repo — veja `config/processa_screen_capture.cfg.example`).
 
@@ -123,7 +126,7 @@ cd /caminho/da/pasta/com/o/cfg
 ---
 
 ### Etapa 2 — Transcrição e resumo do áudio
-**Script:** `scripts/02_transcricao_audio/processa_audio_v5.3.sh`
+**Script:** `scripts/02-transcricao_audio/processa_audio_v5.3.sh`
 
 O que faz:
 1. Valida a existência do `.env` (com `GEMINI_API_KEY`), do `audio.mp3` e da dependência `jq`.
@@ -143,7 +146,20 @@ O que faz:
 
 ---
 
-### Etapa 3 — Montagem do esqueleto, classificação de imagens e geração do PDF
+### Etapa 3 — Conversão de formato de imagens
+**Script:** `scripts/03-converte_imagens/convertALL_png_to_jpg.sh`
+
+O que faz: 
+1. **Busca PNG** – Procura arquivos .png no diretório atual.
+2. **Checa ImageMagick** – Verifica se magick ou convert estão disponíveis.
+3. **Lista arquivos** – Cria lista de imagens encontradas.
+4. **Converte** – Transforma cada PNG em JPG com fundo branco e qualidade 90.
+5. **Conta resultados** – Registra sucessos e erros.
+6. **Finaliza** – Exibe resumo final da conversão.
+
+---
+
+### Etapa 4 — Montagem do esqueleto, classificação de imagens e geração do PDF
 **Script:** `scripts/03_montagem_material/monta_esqueleto_e_prepara_pdf.sh`
 
 Orquestra, em sequência, os 3 scripts Python abaixo. Deve ser executado **depois** de capturar manualmente as telas da aula (via VLC, no formato `vlcsnap-HHhMMmSSsXXX.jpg`) em `~/Imagens`.
@@ -159,20 +175,20 @@ cd /pasta/de/trabalho/da/aula
 ./monta_esqueleto_e_prepara_pdf.sh
 ```
 
-#### 3.1 `pp_gera_esqueleto.py`
+#### 4.1 `pp_gera_esqueleto.py`
 - Varre `~/Imagens` em busca de arquivos `vlc*.jpg` cujo nome contenha timestamp no padrão `HHhMMmSSs mmm` (formato de captura do VLC).
 - Ordena as imagens cronologicamente pelo timestamp extraído do nome do arquivo.
 - Lê `~/Downloads/transcricao.md`.
 - Gera `~/Downloads/esqueleto.md`: um bloco `<img>` por imagem (caminho fixo `000-Midia_e_Anexos/<arquivo>`), seguido de um comentário HTML com instruções para a IA (o que fazer com aquela imagem), e ao final anexa a transcrição completa da aula como apêndice, delimitada por marcadores `<!-- INÍCIO/FIM DA TRANSCRIÇÃO -->`.
 
-#### 3.2 `pp_classifica_imagens.py`
+#### 4.2 `pp_classifica_imagens.py`
 - Lê `~/Downloads/esqueleto.md`.
 - Para cada bloco de imagem, roda **OCR** (`pytesseract`) sobre o arquivo correspondente.
 - Aplica heurísticas simples (regex) para classificar o conteúdo como **código** (detectando padrões como `def`, `class`, `import`, `echo`, `git`, símbolos de sintaxe) ou **slide conceitual**, e tenta inferir a linguagem (`python`, `bash`, `javascript`).
 - Insere comentários HTML de metadado (`<!-- TIPO_DE_IMAGEM -->`, `<!-- POSSIVEL_LINGUAGEM -->`, `<!-- CONFIANCA -->`) logo após cada bloco de imagem.
 - Gera `~/Downloads/esqueleto_enriquecido.md`.
 
-#### 3.3 `pp_gera_pdf.py`
+#### 4.3 `pp_gera_pdf.py`
 - Lê `~/Downloads/esqueleto_enriquecido.md` e extrai, via regex, os nomes de arquivo de todas as imagens referenciadas.
 - Abre cada imagem em `~/Imagens`, grava o nome do arquivo como legenda sobre a própria imagem.
 - Compila todas as imagens, em ordem, em um único PDF: `~/Downloads/imagens.pdf`.
@@ -181,7 +197,7 @@ cd /pasta/de/trabalho/da/aula
 
 ---
 
-### Etapa 4 — Geração das anotações finais via IA de chat
+### Etapa 5 — Geração das anotações finais via IA de chat
 **Prompt:** `prompts/prompt_11.yml`
 
 Passos manuais:
