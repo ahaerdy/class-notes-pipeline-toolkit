@@ -32,7 +32,7 @@ flowchart TD
 
     A["screen-capture.webm\n(~/Downloads)"] -->B1["1. processa_screen_capture.sh"] -->B2["vídeo renomeado\n+ audio.mp3\n(~/Downloads)"]
     B2 --> C1["2. processa_audio_v5.3.sh"] --> C2["transcricao.md +\nresumo_notebooklm.md"]
-    D["vlc*.jpg\n(~/Imagens, capturas manuais)"] --> E
+    D["vlc*.jpg\n(~/Imagens, capturas manuais)"] --> D2["convertALL_png_to_jpg.sh\n(~/Imagens, converte para jpg)"] --> E
     C2 --> E["3. monta_esqueleto_e_prepara_pdf.sh"]
     E --> F["pp_gera_esqueleto.py"]
     F --> G["pp_classifica_imagens.py"]
@@ -43,7 +43,7 @@ flowchart TD
 
     %% Aplicando as classes
     class F,G,H python;
-    class E,B1,C1 shell;
+    class E,B1,C1,D2 shell;
     class A,B2,D midia;
     class C2,I,K doc;
     class J ai;
